@@ -3,7 +3,7 @@ import axios from 'axios';
 import { apilink } from '../../data/fdata';
 import Cookies from 'js-cookie';
 
-const UserDet = ({ addid }) => {
+const UserDet = ({ addid, rating }) => {
   const [userdet, setUserDet] = useState([]);
   const atokon = Cookies.get('_fleksa_access_restaurant_tokon_');
 
@@ -32,6 +32,12 @@ const UserDet = ({ addid }) => {
       {userdet[0]?.name && userdet[0].name} <br />{' '}
       {userdet[0]?.phone && userdet[0].phone} <br />
       {userdet[0]?.address && userdet[0].address}
+      <br />
+      {rating != 0 && (
+        <span class="badge badge-warning text-light">
+          {rating.toFixed(1)} <i class="bx bxs-star"></i>
+        </span>
+      )}
     </>
   );
 };

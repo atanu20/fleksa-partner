@@ -10,6 +10,7 @@ import parse from 'html-react-parser';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import UserDet from './UserDet';
+import GetRating from './GetRating';
 
 const Home = () => {
   const [preload, setPreLoad] = useState(false);
@@ -198,7 +199,10 @@ const Home = () => {
 
                                 <td>{val.foodqty}</td>
                                 <td>
-                                  <UserDet addid={val.address_id} />
+                                  <UserDet
+                                    addid={val.address_id}
+                                    rating={val.rating}
+                                  />
                                 </td>
                               </tr>
                             </>
@@ -277,8 +281,11 @@ const Home = () => {
                             <div className="card p-2">
                               <img src={v.image} alt="" className="home_img" />
                               <div className="p-2 card_text">
-                                <h4>{v.title}</h4>
+                                <h4>
+                                  {v.title} <GetRating foodid={v.food_id} />
+                                </h4>
                                 <h5> ₹{v.price}</h5>
+
                                 <p className="m-0">{v.description}</p>
                                 <div className="">{parse(getTags(v.tags))}</div>
                                 <button
