@@ -5,7 +5,11 @@ const Footer = () => {
   return (
     <>
       <footer>
-        <a href="" className="btn btn-dark">
+        <a
+          href="https://fleksa-client.vercel.app"
+          target="_blank"
+          className="btn btn-dark"
+        >
           Get Best Dishs
         </a>
       </footer>
